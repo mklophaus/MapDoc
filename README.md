@@ -1,5 +1,16 @@
-# mapdoc
+# MapDoc
 
-:tada:
+##Description
 
-Enjoy… 
+-MapDoc is an application which allows users to both upload articles that can be used for research and to also explore documents by location and by subject matter. 
+
+##Technologies Used
+
+-Node Express
+-Angular Js
+-Javascript/JQuery
+-Google Maps API
+
+##API Routes
+
+##User Stories
