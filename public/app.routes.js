@@ -7,18 +7,25 @@
 
   AppRoutes.$inject = ["$stateProvider"];
 
-  function AppRoutes($stateProvider)
+  function AppRoutes($stateProvider){
+
     $stateProvider
-      .state("homePage", {
+      .state("home", {
         url: "/",
-        templateUrl: "/templates/home.html",
-        controller: "HomeController",
-        controllerAs: "vm"
+        templateUrl: "/templates/home.html"
       })
       .state("mapPage", {
         url: "/map",
-        templateUrl: "/templates/map.html"
+        templateUrl: "/templates/map.html",
       })
+      .state("aboutPage", {
+        url: "/about",
+        templateUrl: "/templates/about.html"
+      })
+      .state("post", {
+        url: "/post",
+        templateUrl: "/templates/post.html"
+      });
+}
 
-
-})
+})();
