@@ -13,22 +13,19 @@
 
 // "https://maps.googleapis.com/maps/api/geocode/output?parameters"
 
-      vm.maps = {
+      // vm.maps = {
 
-        center: {
-          longitude: 40,
-          latitude: 34
-        }
+      //   center: {
+      //     longitude: 40,
+      //     latitude: 34
+      //   },
+      //   zoom: 6
+      // };
 
-        zoom: 6
-      }
-
-      vm.markerList = {
-      {latitude: 34, longitude:34},
-
-      {latitude: 54, longitude: 100}
-
-      };
+      // vm.markerList = {
+      // {latitude: 34, longitude:34},
+      // {latitude: 54, longitude: 100}
+      // };
   }
 
 
