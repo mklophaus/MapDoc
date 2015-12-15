@@ -9,7 +9,12 @@
 
   function MainController($state, $log) {
 
+    var vm = this;
+
+    vm.welcomeMessage = "Welcome, User";
+
+    vm.$state = $state;
 
   }
 
-})
+})();
