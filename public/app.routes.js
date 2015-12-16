@@ -17,6 +17,8 @@
       .state("mapPage", {
         url: "/map",
         templateUrl: "/templates/map.html",
+        controller: "DocsController",
+        controllerAs: "vm"
       })
       .state("aboutPage", {
         url: "/about",
@@ -24,7 +26,9 @@
       })
       .state("post", {
         url: "/post",
-        templateUrl: "/templates/post.html"
+        templateUrl: "/templates/post.html",
+        controller: "DocsController",
+        controllerAs: "vm"
       });
 }
 
