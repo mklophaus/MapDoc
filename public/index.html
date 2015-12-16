@@ -11,6 +11,11 @@
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+  <script src="js/lib/lodash.min.js"></script>
+  <script src="js/lib/angular-simple-logger.js"></script>
+  <script src="js/lib/angular-google-maps.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
@@ -18,52 +23,37 @@
 
 <body ng-controller="MainController as vm">
 
-<div class="container text-center">
+  <div class="container text-center">
 
-<div class="container">
-    <ul class="nav nav-tabs">
-      <li ui-sref-active="active">
-        <a ui-sref="home">Home</a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="aboutPage">About</a>
-      </li>
-    </ul>
-</div>
+  <div class="container">
+      <ul class="nav nav-tabs">
+        <li ui-sref-active="active">
+          <a ui-sref="home">Home</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="aboutPage">About</a>
+        </li>
+      </ul>
+  </div>
 
-<br>
+  <br>
 
-<h1>MapDoc</h1>
-
-
-{{vm.welcomeMessage}}
+  <h1>MapDoc</h1>
+  {{vm.welcomeMessage}}
 
     <div class="content" ui-view>
       <!-- PAGE TEMPLATES INSERT HERE -->
     </div>
 
-<br>
+  <br>
 
-</div>
+  </div>
 
-<div id="map"></div>
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
 
 
-
-<script>
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
-  });
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key==initMap" async defer></script>
-
-  <script src="js/main.js"></script>
   <script src="app.js"></script>
+  <!-- <script src="app.config.js"></script> -->
   <script src="app.routes.js"></script>
   <script src="controllers/main_controller.js"></script>
   <script src="controllers/docs_controller.js"></script>
