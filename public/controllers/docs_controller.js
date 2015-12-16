@@ -3,7 +3,7 @@
 
   angular
       .module("mapdocApp")
-      .controller("DocsControlller", DocsController);
+      .controller("DocsController", DocsController);
 
   DocsController.$inject = ["$state", "$log", "$http"];
 
@@ -12,16 +12,16 @@
 
     vm.user = "michael";
 
-    vm.doc = [];
+    vm.docs = [];
 
     vm.newDoc = {
-      name: "",
+      title: "",
       subject: "",
       location: ""
     };
 
     vm.editDoc = {
-      name: "",
+      title: "",
       subject: "",
       location: ""
     };
@@ -30,46 +30,49 @@
     vm.deleteDoc = deleteDoc;
     vm.updateDoc = updateDoc;
     vm.postDoc   = postDoc;
-    vm.resetEditForm = resetEditForm;
+    vm.resetEditorm = resetEditForm;
 
     vm.getDocs();
 
     function getDocs() {
       $http.get('/docs').then(function(response) {
+        console.log(response);
         vm.docs = response.data;
-      }, function(errRes) {
-        console.error('Error!', errRes);
+      }, function(err) {
+        console.error('Error!', err);
       });
     }
 
     function deleteDoc(id) {
-      $http.delete('/api/docs/' + id).then(function(response) {
+      $http.delete('/docs/' + id).then(function(response) {
         console.log(response);
-      }, function(errRes) {
-        console.error('Error deletin fish!', errRes);
-      }).then(getFishes);
+      }, function(err) {
+        console.error('Error deleting doc!', err);
+      }).then(getDocs);
     }
 
-    function postFish() {
-      $http.post('api/fishes', vm.newFish)
-        .then(getFishes)
+    function postDoc() {
+      $http.post('/docs', vm.newDoc)
+        .then(getDocs)
         .then(function(response) {
-          vm.newFish = {
-            name: "",
-            category: ""
+          vm.newDoc = {
+            title: "",
+            subject: "",
+            location: ""
           };
         });
     }
 
-    function updateFish(id) {
-      $http.put('api/fishes/' + id, vm.editFish).then(function(response) {
-        vm.editFish = {
+    function updateDoc(id) {
+      $http.put('/docs' + id, vm.editDoc).then(function(response) {
+        vm.editDoc = {
           title: "",
-          subject: ""
+          subject: "",
+          location: ""
         };
-      }, function(errRes) {
-        console.log('Error fixin fish!', errRes);
-      }).then(getFishes);
+      }, function(err) {
+        console.log('Error editing!', err);
+      }).then(getDocs);
     }
 
     function resetEditForm() {
