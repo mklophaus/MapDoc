@@ -2,24 +2,22 @@
 
 <h2>Make a post!</h2>
 
-<form>
+<form class="form-inline">
   <label>Document Title:</label>
-  <input placeholder="title">
-  </input>
+  <input name="doc[title]" id="doc-title" placeholder="title" ng-model="vm.newDoc.title">
   <br>
   <br>
   <label>Subject:</label>
-  <input placeholder="subject"></input>
+  <input name="doc[subject]" id="doc-subject" placeholder="subject" ng-model="vm.newDoc.subject">
   <br>
   <br>
 
-  <label>City:</label><input placeholder="city">
-  </input>
-
+  <label>Location:</label>
+  <input "name=doc[location]" id="doc-location" placeholder="city" ng-model="vm.newDoc.location">
   <br>
   <br>
 
-  <button class="btn btn-success" type="submit">Post!</button>
+  <button class="btn btn-success" type="submit" ng-click="vm.postDoc()">Post!</button>
 
 
 </form>
