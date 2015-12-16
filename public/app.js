@@ -1,6 +1,9 @@
 (function() {
-  angular.module('mapdocApp', [
-    "ui.router"
-  ]);
+
+  angular
+    .module("mapdocApp", [
+      "ui.router",
+      "uiGmapgoogle-maps"
+    ]);
 
 })();
