@@ -1,33 +1,31 @@
-(function() {
-  "use strict";
+// (function() {
+//   "use strict";
 
-  angular
-      .module("mapdocApp")
-      .controller("MapsController", MapsController);
-
-  MapsController.$inject = [];
-
-  function MapsController(){
-
-    var vm = this;
-
-// "https://maps.googleapis.com/maps/api/geocode/output?parameters"
-
-      // vm.maps = {
-
-      //   center: {
-      //     longitude: 40,
-      //     latitude: 34
-      //   },
-      //   zoom: 6
-      // };
-
-      // vm.markerList = {
-      // {latitude: 34, longitude:34},
-      // {latitude: 54, longitude: 100}
-      // };
-  }
+//   angular
+//     .module('mapdocApp', ['uiGmapgoogle-maps'])
+//     .config(function(uiGmapGoogleMapApiProvider) {
+//      uiGmapGoogleMapApiProvider.configure({
+//       key: 'AIzaSyCnsYfPD49S9GzY7Cj7-6zATAkEdD9Tfxc'
+//      });
+//     })
+//     .controller("MapController", MapController);
 
 
-})();
+
+// function MapController(uiGmapGoogleMapApi){
+
+//   var vm = this;
+
+//   // Define variables for our Map object
+//   var areaLat      = 44.2126995,
+//       areaLng      = -100.2471641,
+//       areaZoom     = 3;
+
+//   uiGmapGoogleMapApi.then(function(maps) {
+//     vm.map     = { center: { latitude: areaLat, longitude: areaLng }, zoom: areaZoom };
+//     vm.options = { scrollwheel: false };
+//   });
+// }
+
+// })();
 
