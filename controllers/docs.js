@@ -23,8 +23,8 @@ var docIndex = function(req, res) {
 var docCreate = function(req, res) {
   var doc       = new Doc();   // create a new instance of the Fish model
 
-  doc.title      = req.body.name;
-  doc.subject  = req.body.category;
+  doc.title      = req.body.title;
+  doc.subject  = req.body.subject;
   doc.location = req.body.location;
 
   doc.save(function(err, savedDoc) {
