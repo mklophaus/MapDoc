@@ -1,20 +1,21 @@
 <div class="container">
 
-<h2>Find a Document</h2>
-
-
   <ui-gmap-google-map center='map.center' zoom='map.zoom'>
 <!--     <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
  -->
      <ui-gmap-markers models="markers" coords="'self'" icon="'icon'">
        <ui-gmap-windows show="show">
 
-                <div ng-non-bindable><a href="{{title}}">Document</a></div>
+                <div ng-non-bindable>
+                <strong>Title of Document: </strong>{{title}}
+                <br>
+                <strong>Subject: </strong>{{subject}}
+                <br>
+                <a href="{{url}}" target="_blank">Link to Article</a>
+                </div>
 
         </ui-gmap-windows>
 
-        <ui-gmap-search-box template="searchbox.template" events="searchbox.events">
-        </ui-gmap-search-box>
 
      </ui-gmap-markers>
 
@@ -22,7 +23,10 @@
  -->
   </ui-gmap-google-map>
 
+  <br>
 
+
+  <button class="btn btn-danger" type="submit" ui-sref="home">Back to Home</button>
 
 
 </div>
