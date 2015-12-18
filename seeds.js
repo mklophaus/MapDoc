@@ -19,7 +19,9 @@ var docs = [
     title: "RATS",
     subject: "RODENTS",
     location: "Pasadena, CA",
-    fileUrl: "http://www.google.com"
+    fileUrl: "http://www.google.com",
+    longitude: 34,
+    latitude: -118
   }
 ];
 
