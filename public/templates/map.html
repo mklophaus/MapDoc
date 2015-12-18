@@ -6,9 +6,20 @@
   <ui-gmap-google-map center='map.center' zoom='map.zoom'>
 <!--     <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
  -->
-<!--  <ui-gmap-markers models="markers" coords="'self'" options="'options'" modelsbyref="false"/>
- -->     <ui-gmap-marker idkey='marker.id' coords='marker.coords'></ui-gmap-marker>
+     <ui-gmap-markers models="markers" coords="'self'" icon="'icon'">
+       <ui-gmap-windows show="show">
 
+                <div ng-non-bindable><a href="{{title}}">Document</a></div>
+
+        </ui-gmap-windows>
+
+        <ui-gmap-search-box template="searchbox.template" events="searchbox.events">
+        </ui-gmap-search-box>
+
+     </ui-gmap-markers>
+
+<!--   <ui-gmap-marker idkey='marker.id' coords='marker.coords'></ui-gmap-marker>
+ -->
   </ui-gmap-google-map>
 
 
