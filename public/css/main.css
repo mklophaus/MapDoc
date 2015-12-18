@@ -14,11 +14,11 @@ body {
   }
 
 
-a { color: #F5EE9E; }
+a { color: #D80F0F; }
 
 .angular-google-map-container {
-  height: 550px;
-  width: 900px;
+  height: 520px;
+  width: 960px;
   border: solid black;
   margin: 0 auto;
   border-radius: 10px;
@@ -38,4 +38,16 @@ a { color: #F5EE9E; }
 
 img {
   border-radius: 10px;
+}
+
+.btn-success,
+.btn-danger
+ {
+  border-radius: 10px;
+  border: solid black .1em;
+}
+
+article {
+  width: 55%;
+  margin: 0 auto;
 }
