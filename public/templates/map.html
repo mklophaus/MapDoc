@@ -2,11 +2,16 @@
 
 <h2>Find a Document</h2>
 
-<div ng-controller="MapController">
-    <ui-gmap-google-map center="map.center" options="options" zoom="map.zoom"></ui-gmap-google-map>
-  </div>
 
-  {{vm.map}}
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+<!--     <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+ -->
+<!--  <ui-gmap-markers models="markers" coords="'self'" options="'options'" modelsbyref="false"/>
+ -->     <ui-gmap-marker idkey='marker.id' coords='marker.coords'></ui-gmap-marker>
+
+  </ui-gmap-google-map>
+
+
 
 
 </div>
