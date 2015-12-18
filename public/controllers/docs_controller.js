@@ -12,13 +12,11 @@
 
     var filePathBase = 'https://mapdocapp.s3.amazonaws.com/';
 
-    vm.docs = [];
-
 
     vm.newDoc = {
       title: "",
       subject: "",
-      location: ""
+      location: "",
     };
 
     vm.editDoc = {
@@ -98,7 +96,7 @@
                 vm.newDoc = {
                 title: "",
                 subject: "",
-                location: ""
+                location: "",
               };
             });
 
@@ -119,12 +117,16 @@
     vm.getDocs    = getDocs;
     vm.deleteDoc = deleteDoc;
     vm.updateDoc = updateDoc;
-    vm.postDoc   = postDoc;
     vm.resetEditorm = resetEditForm;
 
     vm.getDocs();
 
+    // vm.clear = clear;
 
+
+    // function clear() {
+    //   document.element("input[type='file']").val(null);
+    // };
 
 
 
@@ -145,18 +147,6 @@
       }, function(err) {
         console.error('Error deleting doc!', err);
       }).then(getDocs);
-    }
-
-    function postDoc() {
-      $http.post('/docs', vm.newDoc)
-        .then(getDocs)
-        .then(function(response) {
-          vm.newDoc = {
-            title: "",
-            subject: "",
-            location: "",
-          };
-        });
     }
 
     function updateDoc(id) {
