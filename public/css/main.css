@@ -7,20 +7,35 @@ body {
   padding: 0;
 }
 
-body { margin-bottom: 60px; }
+body {
+ margin-bottom: 60px;
+ background-color: #3B8EA5;
+ color: black;
+  }
 
 
-a { color: #00B7FF; }
+a { color: #F5EE9E; }
 
 .angular-google-map-container {
-  height: 600px;
-  width: 600px;
+  height: 550px;
+  width: 900px;
   border: solid black;
   margin: 0 auto;
+  border-radius: 10px;
 }
 
 #uploadInput {
   width: 190px;
   margin: 0 auto;
   text-align: center;
+}
+
+.homebuttons{
+  position: absolute;
+  text-align: center;
+  margin-top: 100px;
+}
+
+img {
+  border-radius: 10px;
 }
