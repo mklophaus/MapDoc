@@ -15,14 +15,13 @@
 
     vm.$state = $state;
 
-    $scope.map = {
-      center: {
-        latitude:   34.04,
-        longitude: -118.25
-      },
-      zoom: 12
-    };
-
+    // $scope.map = {
+    //   center: {
+    //     latitude:   34.04,
+    //     longitude: -118.25
+    //   },
+    //   zoom: 12
+    // };
 
 
   }
