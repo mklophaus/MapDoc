@@ -11,6 +11,8 @@ var env      = require('./config/environment'),
     mongoose = require('./config/database'),
     routes   = require('./config/routes');
 
+require('dotenv').load();
+
 // Instantiate a server application.
 var app = express();
 
