@@ -20,4 +20,6 @@ router.post('/docs',      docsController.docCreate);
 router.put('/docs/:id',    docsController.docUpdate);
 router.delete('/docs/:id', docsController.docDelete);
 
+router.get('/s3keys', docsController.getKeys);
+
 module.exports = router;
