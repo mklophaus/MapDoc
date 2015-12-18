@@ -1,6 +1,7 @@
 <div class="container">
 
 <h2>Upload a Document!</h2>
+<br>
 
 <form class="form-inline">
   <label>Document Title:</label>
@@ -17,7 +18,7 @@
   <br>
   <br>
 
-  <input name="file" file type="file"  id="uploadInput"/>
+  <input name="file" file type="file"  id="uploadInput" ng-click="vm.clear"/>
   <br>
 
   <button class="btn btn-success" ng-click="upload()">Upload!</button>
@@ -28,5 +29,10 @@
 
 
 </form>
+
+<br>
+<br>
+
+    <button class="btn btn-danger" type="submit" ui-sref="mapPage">See Documents</button>
 
 </div>
