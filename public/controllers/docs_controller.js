@@ -130,8 +130,6 @@
 
 
 
-
-
     function getDocs() {
       $http.get('/docs').then(function(response) {
         //console.log(response);
