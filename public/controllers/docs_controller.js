@@ -17,6 +17,7 @@
       title: "",
       subject: "",
       location: "",
+      file: ""
     };
 
     vm.editDoc = {
@@ -93,10 +94,13 @@
                 longitude: geoLng
               })
                .then(function(response) {
+                $('#uploadInput').val('');
+
                 vm.newDoc = {
                 title: "",
                 subject: "",
                 location: "",
+                file: ""
               };
             });
 
@@ -120,14 +124,6 @@
     vm.resetEditorm = resetEditForm;
 
     vm.getDocs();
-
-    // vm.clear = clear;
-
-
-    // function clear() {
-    //   document.element("input[type='file']").val(null);
-    // };
-
 
 
     function getDocs() {

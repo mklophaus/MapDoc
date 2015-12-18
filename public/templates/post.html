@@ -18,15 +18,12 @@
   <br>
   <br>
 
-  <input name="file" file type="file"  id="uploadInput" ng-click="vm.clear"/>
+  <input name="doc[file]" file type="file"  id="uploadInput" ng-model="vm.newDoc.file"/>
   <br>
 
   <button class="btn btn-success" ng-click="upload()">Upload!</button>
 
-
 <br>
-
-
 
 </form>
 
