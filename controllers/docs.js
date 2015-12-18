@@ -1,5 +1,12 @@
 var Doc = require("../models/doc");
 
+var getKeys = function(req, res, next){
+  res.json({
+    AMAZON_KEY_ID: process.env.AMAZON_KEY_PUBLIC,
+    AMAZON_SECRET: process.env.AMAZON_SECRET_PUBLIC
+  });
+}
+
 var docShow = function(req, res, next){
   var id = req.params.id;
 
@@ -26,6 +33,9 @@ var docCreate = function(req, res) {
   doc.title      = req.body.title;
   doc.subject  = req.body.subject;
   doc.location = req.body.location;
+  doc.fileUrl = req.body.fileUrl;
+  doc.latitude = req.body.latitude;
+  doc.longitude = req.body.longitude;
 
   doc.save(function(err, savedDoc) {
     if (err) {
@@ -72,6 +82,7 @@ var docDelete = function(req, res) {
 
 // Export the function/s as JSON
 module.exports = {
+  getKeys:   getKeys,
   docShow:   docShow,
   docIndex:  docIndex,
   docCreate: docCreate,
