@@ -3,9 +3,12 @@ var mongoose = require('mongoose');
 
 // Create a schema of your model
 var docSchema = new mongoose.Schema({
-  title:    String,
+  title:     String,
   subject:   String,
-  location:  String
+  location:  String,
+  fileUrl:   String,
+  latitude:    Number,
+  longitude:    Number
 });
 
 // Create the model using your schema.
