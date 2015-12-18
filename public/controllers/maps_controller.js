@@ -34,7 +34,9 @@
                     latitude: m.latitude,
                     longitude: m.longitude,
                     id: i,
-                    title: m.fileUrl
+                    url: m.fileUrl,
+                    title: m.title,
+                    subject: m.subject
                 };
                 mapMarkers.push(mapMarker);
                 i++;
