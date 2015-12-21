@@ -4,21 +4,21 @@
 <br>
 
 <form class="form-inline">
-  <label>Document Title:</label>
-  <input name="doc[title]" id="doc-title" placeholder="title" ng-model="vm.newDoc.title"/>
+  <label>Document Title: </label>
+  <input class="text-center" name="doc[title]" id="doc-title" placeholder="Title" ng-model="vm.newDoc.title"/>
   <br>
   <br>
-  <label>Subject:</label>
-  <input name="doc[subject]" id="doc-subject" placeholder="subject" ng-model="vm.newDoc.subject"/>
-  <br>
-  <br>
-
-  <label>Location:</label>
-  <input name="doc[location]" id="doc-location" placeholder="city" ng-model="vm.newDoc.location"/>
+  <label>Subject: </label>
+  <input class="text-center" name="doc[subject]" id="doc-subject" placeholder="Subject" ng-model="vm.newDoc.subject"/>
   <br>
   <br>
 
-  <input name="doc[file]" file type="file"  id="uploadInput" ng-model="vm.newDoc.file"/>
+  <label>Location: </label>
+  <input class="text-center" name="doc[location]" id="doc-location" placeholder="City/State/Country" ng-model="vm.newDoc.location"/>
+  <br>
+  <br>
+
+  <input class="text-center" name="doc[file]" file type="file"  id="uploadInput" ng-model="vm.newDoc.file"/>
   <br>
 
   <button class="btn btn-success" ng-click="upload()">Upload!</button>

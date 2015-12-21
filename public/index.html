@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   <link rel="stylesheet" href="css/main.css">
-
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
@@ -23,35 +22,68 @@
 
 <body ng-controller="MainController as vm">
 
-  <div class="container text-center">
-
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
-      <ul class="nav nav-tabs">
-        <li ui-sref-active="active">
-          <a ui-sref="home">Home</a>
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand glyphicon glyphicon-globe"></span> <a ui-sref="landing" class="navbar-brand">MapDoc</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+           <a ui-sref="aboutPage">Getting started</a>
         </li>
-        <li ui-sref-active="active">
-          <a ui-sref="aboutPage">About</a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="home">Dashboard</a></li>
+            <li><a ui-sref="aboutPage">About</a></li>
+            <li><a ui-sref="post">Post</a></li>
+            <li><a ui-sref="mapPage">Search</a></li>
+            <li><a ui-sref="mapPage">My Files</a></li>
+
+          </ul>
         </li>
       </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <a ui-sref="aboutPage">Login</a>
+            </li>
+            <li>
+              <a ui-sref="home">Sign up!</a>
+            </li>
+          </ul>
+    </nav>
   </div>
+</header>
 
-  <h1>MapDoc</h1>
 
-  <h3>An app to share work by it's location.</h3>
+  <div class="container">
+  <br>
+  <br>
+  <br>
+  <h1 class="logoHover">MapDoc</h1>
+
+  <h3 class="logoHover">An app to share work by it's location.</h3>
   <br>
 
-    <div class="content" ui-view>
+    <div ui-view>
+
+    <img class="img-responsive main" alt="Responsive image" src="assets/images/landscape1.jpg">
       <!-- PAGE TEMPLATES INSERT HERE -->
+    <br>
+    <br>
+    <br>
     </div>
 
-
   <br>
 
-  </div>
-
-
-
+</div>
 
   <script src="app.js"></script>
   <script src="app.config.js"></script>
@@ -63,4 +95,12 @@
 
 
 </body>
+
+<footer>
+  <br>
+  <span class="text-center">By Michael Klophaus</span>
+  <br>
+  <span class="text-center">2016. All Rights Reserved.</span>
+</footer>
+
 </html>

@@ -10,8 +10,11 @@
   function AppRoutes($stateProvider){
 
     $stateProvider
+      .state("landing", {
+        url: "/"
+      })
       .state("home", {
-        url: "/",
+        url: "/home",
         templateUrl: "/templates/home.html"
       })
       .state("mapPage", {
