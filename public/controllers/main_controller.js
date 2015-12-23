@@ -5,25 +5,21 @@
     .module("mapdocApp")
     .controller("MainController", MainController);
 
-  MainController.$inject = ["$scope", "$state", "$log"];
+  MainController.$inject = ["$scope", "$state", "$log", "userDataService", "authService"];
 
-  function MainController($scope, $state, $log) {
+  function MainController($scope, $state, $log, userDataService, authService) {
 
     var vm = this;
+
+    vm.currentUser = authService.currentUser;
+    vm.logout = authService.logout;
+    vm.isLoggedIn = authService.isLoggedIn;
+
+    vm.userName = authService.userName;
 
     vm.welcomeMessage = "Welcome, User";
 
     vm.$state = $state;
-
-    // $scope.map = {
-    //   center: {
-    //     latitude:   34.04,
-    //     longitude: -118.25
-    //   },
-    //   zoom: 12
-    // };
-
-
   }
 
 })();
