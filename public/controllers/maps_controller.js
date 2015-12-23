@@ -5,9 +5,9 @@
     .module("mapdocApp")
     .controller("MapController", MapController);
 
-  MapController.$inject = ["$scope", "$state", "$log", "$http", "uiGmapGoogleMapApi"];
+  MapController.$inject = ["$scope", "$state", "$log", "$http", "uiGmapGoogleMapApi", "authService"];
 
-  function MapController($scope, $state, $log, $http, uiGmapGoogleMapApi) {
+  function MapController($scope, $state, $log, $http, uiGmapGoogleMapApi, authService) {
 
     var vm = this;
 
@@ -17,7 +17,7 @@
     var mapMarkers = [];
     var mapMarker;
 
-    vm.welcomeMessage = "Welcome, User";
+    vm.userName = authService.currentUser.name;
 
     vm.$state = $state;
 
