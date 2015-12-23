@@ -31,6 +31,18 @@
         templateUrl: "/templates/post.html",
         controller: "DocsController",
         controllerAs: "vm"
+      })
+      .state("register", {
+        url: "/register",
+        templateUrl: "/templates/register.html",
+        controller: "UsersController",
+        controllerAs: "vm"
+      })
+      .state("login", {
+        url: "/login",
+        templateUrl: "/templates/login.html",
+        controller: "LoginController",
+        controllerAs: "vm"
       });
 }
 
