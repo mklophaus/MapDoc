@@ -20,7 +20,7 @@
 
 </head>
 
-<body ng-controller="MainController as vm">
+<body ng-controller="MainController as vm" ng-cloak>
 
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
@@ -51,11 +51,17 @@
         </li>
       </ul>
           <ul class="nav navbar-nav pull-right">
-            <li>
-              <a ui-sref="aboutPage">Login</a>
+            <li role="presentation" ui-sref-active="active" ng-hide="vm.isLoggedIn()">
+              <a ui-sref="login">Login</a>
             </li>
-            <li>
-              <a ui-sref="home">Sign up!</a>
+             <li role="presentation" ui-sref-active="active" ng-hide="vm.isLoggedIn()">
+              <a ui-sref="register">Register</a>
+            </li>
+            <li role="presentation" ui-sref-active="active" ng-show="vm.isLoggedIn()">
+              <a ui-sref="post">You're logged in!</a>
+            </li>
+            <li ng-show="vm.isLoggedIn()">
+              <a class="btn" ng-click="vm.logout()">Logout</a>
             </li>
           </ul>
     </nav>
@@ -68,11 +74,14 @@
   <br>
   <br>
   <h1 class="logoHover">MapDoc</h1>
-
+  {{vm.currentUser}}
+  {{vm.userName}}
   <h3 class="logoHover">An app to share work by it's location.</h3>
   <br>
 
     <div ui-view>
+
+    {{vm.currentUser}}
 
     <img class="img-responsive main" alt="Responsive image" src="assets/images/landscape1.jpg">
       <!-- PAGE TEMPLATES INSERT HERE -->
@@ -91,7 +100,11 @@
   <script src="controllers/main_controller.js"></script>
   <script src="controllers/docs_controller.js"></script>
   <script src="controllers/maps_controller.js"></script>
+  <script src="controllers/login_controller.js"></script>
+  <script src="controllers/users_controller.js"></script>
   <script src="services/uploadDataService.js"></script>
+  <script src="services/auth.service.js"></script>
+  <script src="services/user.dataservice.js"></script>
 
 
 </body>
