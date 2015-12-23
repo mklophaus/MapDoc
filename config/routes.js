@@ -10,8 +10,13 @@ var docsController =    require('../controllers/docs');
 router.get('/', welcomeController.index);
 
 // users resource paths:
-router.get('/users',     usersController.index);
-router.get('/users/:id', usersController.show);
+router.post('/login',  usersController.userAuth);
+router.get('/users',   usersController.usersAll);
+router.post('/users',  usersController.userCreate);
+router.get('/users/:id', usersController.tokenVerify, usersController.userShow);
+router.put('/users/:id',     usersController.tokenVerify, usersController.userUpdate);
+router.delete('/users/:id',  usersController.tokenVerify, usersController.userDelete);
+
 
 ///DOCS ROUTES
 router.get('/docs/:id',    docsController.docShow);
