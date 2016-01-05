@@ -7,8 +7,10 @@ var docSchema = new mongoose.Schema({
   subject:   String,
   location:  String,
   fileUrl:   String,
-  latitude:    Number,
-  longitude:    Number
+  latitude:  Number,
+  longitude: Number,
+  author:      String,
+  user_id:   String
 });
 
 // Create the model using your schema.
