@@ -22,6 +22,10 @@ body {
  margin: 0 auto;
   }
 
+.bigTitle {
+  color: #35F261;
+}
+
 
 a { color: #35F261; }
 
@@ -75,7 +79,6 @@ opacity: .5;
   margin: 0 auto;
 }
 
-
 .navbar-inverse { background-color: #1B4E70}
 .navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #7DFFA8}
 .navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #7DFFA8}
@@ -95,3 +98,87 @@ opacity: .5;
 .navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #7DFFA8}
 .navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #7DFFA8}
 .navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #7DFFA8}
+
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+  position: relative;
+  display: block;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel .item{
+  height: 500px;
+  background-color: #777;
+}
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+
+
+
+
+.pac-controls {
+  margin-top: 16px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px !important;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  padding: 0 11px 0 13px;
+  width: 400px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+  margin-left: -1px;
+  padding-left: 14px;  /* Regular padding-left + 1. */
+  width: 401px;
+}
+
+.pac-container {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.angular-google-map-container {
+    width: 100%;
+    height: 600px;
+}
+
+.label {
+color: black;
+font-size: 20px;
+}
