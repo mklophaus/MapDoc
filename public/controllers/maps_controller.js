@@ -5,9 +5,9 @@
     .module("mapdocApp")
     .controller("MapController", MapController);
 
-  MapController.$inject = ["$scope", "$state", "$log", "$http", "uiGmapGoogleMapApi", "authService"];
+  MapController.$inject = ["$scope", "$state", "$log", "$http", "uiGmapGoogleMapApi", "authService", "userDataService"];
 
-  function MapController($scope, $state, $log, $http, uiGmapGoogleMapApi, authService) {
+  function MapController($scope, $state, $log, $http, uiGmapGoogleMapApi, authService, userDataService) {
 
     var vm = this;
 
@@ -17,7 +17,8 @@
     var mapMarkers = [];
     var mapMarker;
 
-    vm.userName = authService.currentUser.name;
+
+    // vm.userName = authService.currentUser.name;
 
     vm.$state = $state;
 
@@ -41,7 +42,8 @@
                 mapMarkers.push(mapMarker);
                 i++;
             });
-        $scope.markers = mapMarkers;
+
+            $scope.markers = mapMarkers;
 
         });
     },
@@ -58,6 +60,6 @@
     };
 
 
-  };
+    };
 
 })();
