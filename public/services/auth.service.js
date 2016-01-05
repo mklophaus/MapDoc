@@ -51,15 +51,14 @@
       // return the promise object and its data
       return $http.post('/login', {
         email: email,
-        password:    password
+        password: password
       })
         .success(function(data) {
-          console.log("THE data from auth service");
-          console.log(data);
+          console.log("Success");
           authToken.setToken(data.token);
-          currentUser          = data.user;
+          currentUser = data.user;
           userDataService.user = data.user;
-          userName             = currentUser.name;
+
           return data;
         });
     };
@@ -82,13 +81,10 @@
         return false;
     };
 
-    authFactory.currentUser = function () {
+    authFactory.currentUser = function() {
       return currentUser;
     };
 
-    authFactory.userName = function() {
-      return userName;
-    };
 
     // get the logged in user
     authFactory.getUser = function(id) {
