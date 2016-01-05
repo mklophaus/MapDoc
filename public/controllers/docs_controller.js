@@ -5,13 +5,14 @@
       .module("mapdocApp")
       .controller("DocsController", DocsController);
 
-  DocsController.$inject = ["$log", "$http", "$parse", "$scope", "uiGmapGoogleMapApi"];
+  DocsController.$inject = ["$log", "$http", "$parse", "$scope", "uiGmapGoogleMapApi", "authService", "userDataService"];
 
-  function DocsController($log, $http, $parse, $scope, uiGmapGoogleMapApi) {
+  function DocsController($log, $http, $parse, $scope, uiGmapGoogleMapApi, authService, userDataService) {
     var vm = this;
 
     var filePathBase = 'https://mapdocapp.s3.amazonaws.com/';
 
+    $scope.currentUser = userDataService.user;
 
     vm.newDoc = {
       title: "",
@@ -91,7 +92,9 @@
                 subject: vm.newDoc.subject,
                 location: vm.newDoc.location,
                 latitude: geoLat,
-                longitude: geoLng
+                longitude: geoLng,
+                author: userDataService.user.name,
+                user_id: userDataService.user._id
               })
                .then(function(response) {
                 $('#uploadInput').val('');
