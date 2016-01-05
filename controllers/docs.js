@@ -36,6 +36,8 @@ var docCreate = function(req, res) {
   doc.fileUrl = req.body.fileUrl;
   doc.latitude = req.body.latitude;
   doc.longitude = req.body.longitude;
+  doc.author = req.body.author;
+  doc.user_id = req.body.user_id;
 
   doc.save(function(err, savedDoc) {
     if (err) {
