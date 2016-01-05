@@ -1,8 +1,8 @@
 var mongoose = require('mongoose'),
     Schema       = mongoose.Schema,
-    debug    = require('debug')('app:models'),
-     Doc         = require('./doc.js'),
-     bcrypt       = require('bcrypt-nodejs');
+    debug        = require('debug')('app:models'),
+    Doc          = require('./doc.js'),
+    bcrypt       = require('bcrypt-nodejs');
 
 
 // var userSchema = new mongoose.Schema({
