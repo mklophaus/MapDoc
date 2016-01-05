@@ -20,7 +20,7 @@
       .state("mapPage", {
         url: "/map",
         templateUrl: "/templates/map.html",
-        controller: "MapController"
+        controller: "SearchBoxController",
       })
       .state("aboutPage", {
         url: "/about",
