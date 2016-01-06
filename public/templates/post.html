@@ -3,6 +3,11 @@
 <h2>Upload a Document!</h2>
 <br>
 
+ {{currentUser.email}}
+      {{currentUser.name}}
+
+<br>
+
 <form class="form-inline">
   <label>Document Title: </label>
   <input class="text-center" name="doc[title]" id="doc-title" placeholder="Title" ng-model="vm.newDoc.title"/>
@@ -31,5 +36,8 @@
 <br>
 
     <button class="btn btn-danger" type="submit" ui-sref="mapPage">See Documents</button>
+
+<br>
+<br>
 
 </div>
