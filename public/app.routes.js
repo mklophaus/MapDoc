@@ -19,8 +19,7 @@
       })
       .state("mapPage", {
         url: "/map",
-        templateUrl: "/templates/map.html",
-        controller: "SearchBoxController",
+        templateUrl: "/templates/map.html"
       })
       .state("aboutPage", {
         url: "/about",
@@ -31,6 +30,11 @@
         templateUrl: "/templates/post.html",
         controller: "DocsController",
         controllerAs: "vm"
+      })
+      .state("yourDocs", {
+        url: "/yourDocuments",
+        templateUrl: "/templates/your_docs.html",
+        controller: "YourDocsController"
       })
       .state("register", {
         url: "/register",
