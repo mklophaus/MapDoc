@@ -1,139 +1,284 @@
 <!DOCTYPE html>
-<html ng-app="mapdocApp">
+<html ng-app="mapdocApp" lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>MapDoc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <!--Le HTML5 shim, for IE6-8 support of HTML5 elements-->
+    <!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <!-- Le styles -->
+    <link rel="stylesheet" href="css/main.css">
 
-  <title>MapDoc</title>
+    <link href="css/lib/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/lib/font-awesome.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/lib/jquery.fancybox.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/lib/jquery.fancybox-thumbs.css?v=1.0.2" />
+    <link href="assets/font/css/open-iconic-bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="css/lib/animate.css" rel="stylesheet" type="text/css" />
+    <link href="css/lib/isotope.css" rel="stylesheet" type="text/css" />
+    <link href="css/lib/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/lib/style-responsive.css" rel="stylesheet" type="text/css" />
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="css/main.css">
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 
+    <!-- Le fav and touch icons -->
+  <!--   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="ico/favicon.png"> -->
+</head>
+
+<body ng-controller="MainController as vm" ng-cloak>
+    <!-- preloader -->
+   <!--  <div class="preloading">
+        <img class="loading-gif" src="images/fancy-loading.gif" alt="preloader">
+    </div> -->
+    <!-- This section is for Splash Screen -->
+    <!--################ NAVIGATION START ################-->
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-purity" role="navigation">
+            <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand as-seen" ui-sref="landing">
+                        <img src="assets/images/flat_logo_smaller.png" width="150" id="logokhan" alt="...">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a ui-sref="aboutPage">Getting Started</a>
+                                </li>
+                                <li><a ui-sref="mapPage">Search</a>
+                                </li>
+                                <li><a href="index-3.html">Home Showcase</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a ui-sref="yourDocs">Dashboard</a>
+                        </li>
+                        <li><a ui-sref="mapPage">Search</a>
+                        </li>
+                        <li><a ui-sref="post">Post</a>
+                        </li>
+                        <li class="">
+<!--                             <a data-toggle="modal" href="#signUpModal" class="">Sign Up</a>
+ -->
+                             <a ui-sref="register">Sign Up!</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Sign In <b class="caret"></b></a>
+                            <div class="dropdown-menu" style="padding: 15px;">
+                                <form ng-submit="vm.login()" role="form" class="form-menu">
+                                    <div class="form-group">
+                                        <input ng-model="vm.loginData.email" type="text" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input ng-model="vm.loginData.password" type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="text-muted">
+                                            <input type="checkbox">Remember me
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-block btn-purity">Submit</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--################ NAVIGATION END ################-->
+    <!--################ WRAP START ################-->
+
+
+    <div ui-view id="wrap">
+        <!--################ HEADER START ################-->
+        <header data-stellar-background-ratio="0">
+            <div class="container home">
+                <div class="flexslider home">
+                    <ul class="slides">
+                        <li>
+                            <div class="col-md-7 animated fadeInLeftBig">
+                                <img src="assets/images/flat_logo.png">
+                            </div>
+                            <div class="col-md-4 margintop10p animated fadeInDownBig">
+                                <h1><i class="icon-tablet"></i><i class="icon-mobile-phone"></i><i class="icon-desktop"></i>
+                                    <br />Post it</h1>
+                            </div>
+                        </li>
+                        <li class="margin5">
+                            <div class="col-md-6 animated fadeInLeftBig" id="main-media">
+                                <i class="oi oi-map-marker icon-10x color5"></i>`
+
+                            </div>
+                            <div class="col-md-5">
+                                <h1>Upload your documents with a location</h1>
+                            </div>
+                        </li>
+                        <li class="margintop10p">
+                            <h1><i class="oi oi-globe icon-2x color5"></i>
+                                <br />Find documents you need for research.</h1>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--################ HEADER END ################-->
+
+            <!--################ MAIN CONTAINER START ################-->
+
+            <!--################ FEATURES SECTION START ################-->
+            <section  id="features" class="paddingtop20 features-home-page">
+
+                <div class="container paddingtop20">
+                   <div class="row">
+                    <div class="col-md-12">
+                        <ul class="thumbnails list-unstyled">
+                            <li class="col-md-3">
+                                <div class="thumbnail border-left">
+                                    <div class="feature-icon">
+                                        <i class="oi oi-data-transfer-upload icon-10x color1"></i>
+                                    </div>
+                                    <h4>Upload your Work</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                </div>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="thumbnail border-none">
+                                    <div class="feature-icon">
+                                        <i class="oi oi-magnifying-glass icon-10x color2"></i>
+                                    </div>
+                                    <h4>Find Work</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                </div>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="thumbnail border-right">
+                                    <div class="feature-icon">
+                                        <i class="oi oi-dashboard icon-10x color3"></i>
+                                    </div>
+                                    <h4>Dashboard</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                </div>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="thumbnail border-right">
+                                    <div class="feature-icon">
+                                        <i class="oi oi-map-marker icon-10x color4"></i>
+                                    </div>
+                                    <h4>About MapDoc</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                </div>
+
+
+
+            </section>
+
+
+            <section id="call-to-action" class="margintop20 marginbot20">
+
+                <div class="call-to-action-link">
+                    <a href="#"><span>Sign Up →</span></a>
+                </div>
+
+            </section>
+
+            <!--################ BOTTOM SECTION START ################-->
+
+            <section id="bottom" class="paddingbot20 paddingtop20">
+
+                <div class="container">
+                    <div class="row center">
+                        <div class="as-seen">
+                            <div class="col-md-12">
+                                <img src="assets/images/flat_logo_smaller.png" width="150" alt="Tc">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!--################ BOTTOM SECTION END ################-->
+
+
+        </div>
+
+        <!--################ PUSH WILL KEEP THE FOOTER AT BOTTOM IF YOU WANT TO CREATE OTHER PAGES ################-->
+
+        <div id="push"></div>
+
+   <!--################ FOOTER START ################-->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h2>links</h2>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#" class="flink">About Us</a>
+                        </li>
+                        <li><a href="#" class="flink">Contact</a>
+                        </li>
+                        <li><a href="#" class="flink">Blog</a>
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <!--<h2>about us...</h2>-->
+                    <img src="assets/images/flat_logo_smaller.png" alt="...">
+                    <p>
+                        <br />MapDoc is application created by Michael Klophaus. It was built using Node.js, AngularJs, Javascript and jQuery along with the Google Maps API and Amazon Web Services. Feel free to contact with questions about the project or myself.</p>
+                    <p class="copyright">
+                        © 2016
+                        <br />
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!--################ FOOTER END ################-->
+
+
+    <!--################ JAVASCRIPTS ################-->
+  <script src="js/lib/jquery.js"></script>
+  <script src="js/lib/lodash.min.js"></script>
   <script src="js/lib/lodash.min.js"></script>
   <script src="js/lib/angular-simple-logger.js"></script>
   <script src="js/lib/angular-google-maps.js"></script>
   <script src="js/lib/aws-sdk.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-
-
-
-</head>
-
-<body ng-controller="MainController as vm" ng-cloak>
-
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand glyphicon glyphicon-globe"></span> <a ui-sref="landing" class="navbar-brand">MapDoc</a>
-    </div>
-    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <li>
-           <a ui-sref="aboutPage">Getting started</a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a ui-sref="home">Dashboard</a></li>
-            <li><a ui-sref="aboutPage">About</a></li>
-            <li><a ui-sref="post">Post</a></li>
-            <li><a ui-sref="mapPage">Search</a></li>
-            <li><a ui-sref="yourDocs">My Files</a></li>
-
-          </ul>
-        </li>
-      </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li role="presentation" ui-sref-active="active" ng-hide="vm.isLoggedIn()">
-              <a ui-sref="login">Login</a>
-            </li>
-             <li role="presentation" ui-sref-active="active" ng-hide="vm.isLoggedIn()">
-              <a ui-sref="register">Register</a>
-            </li>
-            <li role="presentation" ui-sref-active="active" ng-show="vm.isLoggedIn()">
-              <a ui-sref="post">You're logged in!</a>
-            </li>
-            <li ng-show="vm.isLoggedIn()">
-              <a ng-click="vm.logout()">Logout</a>
-            </li>
-          </ul>
-    </nav>
-  </div>
-</header>
-
-
-  <div class="container">
-
-  <br>
-  <br>
-    <h1 class="bigTitle logoHover">MapDoc</h1>
-
-  <br>
-
-    <div class="content" ui-view>
- <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item">
-          <img class="first-slide" src="assets/images/landscape1.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>An app to share work by location.</h1>
-              <p>Share your research or your passion.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item active">
-          <img class="second-slide" src="assets/images/landscape2.jpeg" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>View your Dashboard.</h1>
-              <p>Posting your work and staying organized is easy.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Dashboard</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="assets/images/landscape3.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Go ahead, make a post.</h1>
-              <p>Post up that work.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Post!</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>      <!-- PAGE TEMPLATES INSERT HERE -->
-
-    </div>
-
-</div>
 
   <script src="app.js"></script>
   <script src="app.config.js"></script>
@@ -150,13 +295,61 @@
   <script src="services/user.dataservice.js"></script>
 
 
-</body>
 
-<footer>
-  <br>
-  <span class="text-center">By Michael Klophaus</span>
-  <br>
-  <span class="text-center">2016. All Rights Reserved.</span>
-</footer>
+    <script src="js/lib/modernizr.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/lib/jquery.fitvids.js"></script>
+    <script src="js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.fancybox-thumbs.js?v=1.0.2"></script>
+    <script type="text/javascript" src="js/lib/jquery.fancybox-media.js?v=1.0.0"></script>
+    <script src="js/lib/stellar.js"></script>
+    <script src="js/lib/nicescroll.min.js"></script>
+    <script src="js/lib/jquery.isotope.min.js"></script>
+    <script src="js/lib/custom.js"></script>
+    <script src="js/lib/custom-home.js"></script>
+    <script src="js/lib/portfolio.js"></script>
+    <script src="js/lib/jquery.flexslider.js"></script>
+    <script src="js/lib/retina.js"></script>
+    <!-- ajax contact form script -->
+    <script type="text/javascript" src="js/lib/mail.js"></script>
+
+
+    <!-- REGISTER MODAL -->
+    <!-- Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Create a new account...</h4>
+                </div>
+                <div class="modal-body">
+                    <form ng-submit="vm.createUser()" role="form">
+                        <div class="form-group">
+                            <label for="signupName">Name</label>
+                            <input ng-model="vm.userData.name" required type="text" class="form-control input-lg" id="inputName1">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input ng-model="vm.userData.email" required type="text" class="form-control input-lg" id="signupEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Email</label>
+                            <input ng-model="vm.userData.password" required type="email" class="form-control input-lg" id="signupPassword">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-purity btn-lg">Create New Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--REGISTER MODAL END-->
+</body>
 
 </html>
