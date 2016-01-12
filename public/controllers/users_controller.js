@@ -2,9 +2,9 @@
   angular.module('mapdocApp')
          .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['$state', 'authService', 'userDataService', '$log'];
+  UsersController.$inject = ['$state', 'authService', 'userDataService', '$log', '$uibModal'];
 
-  function UsersController($state, authService, userDataService, $log) {
+  function UsersController($state, authService, userDataService, $log, $uibModal) {
     var vm = this;
 
     vm.currentUser = authService.currentUser;
