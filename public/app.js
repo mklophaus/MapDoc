@@ -3,7 +3,8 @@
   angular
     .module("mapdocApp", [
       "ui.router",
-      "uiGmapgoogle-maps"
+      "uiGmapgoogle-maps",
+      "ui.bootstrap"
     ])
 
     .config(function($httpProvider) {
