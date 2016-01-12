@@ -7,34 +7,98 @@
   .controller("ParameterController", ParameterController)
 
   .run(['$templateCache', function ($templateCache) {
-    $templateCache.put('searchbox.tpl.html', '<input id="pac-input" ng-model="ngModel" class="pac-controls" type="text" placeholder="Search"></input>');
+    $templateCache.put('searchbox.tpl.html', '<input id="pac-input" ng-model="ngModel" class="pac-controls boldInput" type="text" placeholder="Search"></input>');
   }])
 
-  .filter('searchFor', function(){
+  .filter('searchForTitle', function(){
+  return function(arr, searchTitle){
 
-  return function(arr, searchString){
-
-    if(!searchString){
+    if(!searchTitle){
       return arr;
     }
 
     var result = [];
-    searchString = searchString.toLowerCase();
+    searchTitle = searchTitle.toLowerCase();
 
     angular.forEach(arr, function(item){
-      if(item.title.toLowerCase().indexOf(searchString) !== -1){
+      if(item.title.toLowerCase().indexOf(searchTitle) !== -1){
         result.push(item);
       }
     });
 
     return result;
   };
+  })
 
+   .filter('searchForAuthor', function(){
+  return function(arr, searchAuthor){
+
+    if(!searchAuthor){
+      return arr;
+    }
+
+    var result = [];
+    searchAuthor = searchAuthor.toLowerCase();
+
+    angular.forEach(arr, function(item){
+      console.log(item);
+      if(item.author.toLowerCase().indexOf(searchAuthor) !== -1){
+        result.push(item);
+      }
+    });
+
+    return result;
+  };
+  })
+
+   .filter('searchForSubject', function(){
+  return function(arr, searchSubject){
+
+    if(!searchSubject){
+      return arr;
+    }
+
+    var result = [];
+    searchSubject = searchSubject.toLowerCase();
+
+    angular.forEach(arr, function(item){
+      console.log(item);
+      if(item.subject.toLowerCase().indexOf(searchSubject) !== -1){
+        result.push(item);
+      }
+    });
+
+    return result;
+  };
   });
+
+
 
   SearchBoxController.$inject = ["$scope", "$timeout", "$http", "$log", "uiGmapGoogleMapApi", "authService", "userDataService"];
 
   function SearchBoxController($scope, $timeout, $http, $log, uiGmapGoogleMapApi, authService, userDataService) {
+
+    $('#searchSelection').change(function(){
+
+      if ($(this).val() === '1') {
+              $('#authorSearch').show();
+              $('#titleSearch').hide();
+              $('#subjectSearch').hide();
+      }
+
+      else if ($(this).val() == '2') {
+              $('#subjectSearch').show();
+              $('#authorSearch').hide();
+              $('#titleSearch').hide();
+      }
+
+      else if ($(this).val() == '3') {
+              $('#titleSearch').show();
+              $('#authorSearch').hide();
+              $('#subjectSearch').hide();
+      }
+
+    });
 
     var markers = [];
     var mapMarker;
@@ -151,7 +215,7 @@
 
   }
 
-  ParameterController.$inject("$scope", "$http")
+  ParameterController.$inject = ["$scope", "$http"];
 
   function ParameterController($scope, $http){
     var documents = [];
