@@ -1223,8 +1223,8 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     color: #696969;
     font-size: 12px;
     margin-top: 14px;
-    font-style: italic;
-}
+/*    font-style: italic;
+*/}
 #pricing .price-plan .price .inside {
     font-weight: 300;
     text-align: center;
