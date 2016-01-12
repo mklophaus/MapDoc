@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Oxygen);
+/*@import url(https://fonts.googleapis.com/css?family=Oxygen);
 html,
 body {
   height: 100%;
@@ -31,10 +31,12 @@ body {
 
 
 a { color: #35F261; }
-
+*/
 .angular-google-map-container {
-  height: 550px;
-  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  height: 450px;
+  width: 100%;
   border: solid black;
   margin: 0 auto;
   border-radius: 10px;
@@ -61,7 +63,7 @@ img {
   border: solid black .1em;
 }
 
-article {
+/*article {
   width: 55%;
   margin: 0 auto;
 }
@@ -128,7 +130,7 @@ opacity: .5;
   min-width: 100%;
   height: 500px;
 }
-
+*/
 
 
 /*SEARCH STYLES
@@ -400,5 +402,23 @@ tbody:hover tr:hover td {
 
 .smallTable {
   font-size: 15px;
-  width: 450px;
+  width: 480px;
 }
+
+.centered {
+  text-align: center;
+}
+
+.bigFont {
+  font-size: 95px;
+  color: white;
+}
+
+.boldInput {
+  border: solid gray .1em;
+  border-radius: 20px;
+}
+
+
+
+
