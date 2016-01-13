@@ -85,31 +85,29 @@
               $('#titleSearch').hide();
               $('#subjectSearch').hide();
       }
-
       else if ($(this).val() == '2') {
               $('#subjectSearch').show();
               $('#authorSearch').hide();
               $('#titleSearch').hide();
       }
-
       else if ($(this).val() == '3') {
               $('#titleSearch').show();
               $('#authorSearch').hide();
               $('#subjectSearch').hide();
       }
-
     });
 
     var markers = [];
     var mapMarker;
     var mapMarkers = [];
+    var documents = [];
+
 
     $scope.currentUser = userDataService.user;
 
     $scope.toggleMap = function () {
       $scope.searchbox.options.visible = !$scope.searchbox.options.visible;
     };
-
 
    $http.get('/docs').then(function(response){
       console.log(response.data[0]);
@@ -120,9 +118,11 @@
     uiGmapGoogleMapApi.then(function(maps) {
       maps.visualRefresh = true;
       $scope.defaultBounds = new google.maps.LatLngBounds(
-        new google.maps.LatLng(35.82148, -118.66450),
-        new google.maps.LatLng(35.66541, -118.31715)
+        new google.maps.LatLng(38.531133, 5.459778),
+        new google.maps.LatLng(38.531133, 5.459778)
         );
+
+      $scope.map.zoom = 2;
 
       $scope.map.bounds = {
         northeast: {
@@ -153,22 +153,26 @@
       });
 
       $scope.markers = mapMarkers;
+      $scope.items = documents
 
       });
-
     },
+
     function(err) {
         console.log('ERROR!', err);
     });
 
+
+
+    //////LOCATION SEARCHBOX/////////
     angular.extend($scope, {
       map: {
         control: {},
         center: {
-          latitude: 35.74349,
-          longitude: -118.990822
+          latitude: 38.531133,
+          longitude: 5.459778
         },
-        zoom: 7,
+        zoom: 3,
         dragging: false,
         bounds: {},
         markers: [],
@@ -189,8 +193,8 @@
           places_changed: function (searchBox) {
 
             var searches = searchBox.getPlaces();
-
             var newMarkers = [];
+
             var bounds = new google.maps.LatLngBounds();
             for (var i = 0, place; place = searches[i]; i++) {
               bounds.extend(place.geometry.location);
@@ -207,29 +211,59 @@
                 longitude: bounds.getSouthWest().lng()
               }
             };
-
           }
         }
       }
+
     });
+
+    $http.get('/docs').then(function(response){
+      angular.forEach(response.data, function(e){
+        documents.push(e);
+      });
+    },
+    function(err) {
+        console.log('ERROR!', err);
+    });
+
+    $scope.items = documents;
 
   }
 
   ParameterController.$inject = ["$scope", "$http"];
 
   function ParameterController($scope, $http){
-    var documents = [];
+    // var documents = [];
 
-      $http.get('/docs').then(function(response){
-        angular.forEach(response.data, function(e){
-          documents.push(e);
-        });
-      },
-      function(err) {
-          console.log('ERROR!', err);
-      });
+    //   $http.get('/docs').then(function(response){
+    //     angular.forEach(response.data, function(e){
+    //       documents.push(e);
+    //     });
+    //   },
+    //   function(err) {
+    //       console.log('ERROR!', err);
+    //   });
 
-    $scope.items = documents;
+    // $scope.items = documents;
+
+
+    // $scope.findLocation = findlocation
+
+    // function findLocation(place){
+    //    bounds.extend(place.geometry.location);
+
+    //    $scope.map.bounds = {
+    //           northeast: {
+    //             latitude: bounds.getNorthEast().lat(),
+    //             longitude: bounds.getNorthEast().lng()
+    //           },
+    //           southwest: {
+    //             latitude: bounds.getSouthWest().lat(),
+    //             longitude: bounds.getSouthWest().lng()
+    //           }
+    //         };
+    // }
+
   }
 
 })();
