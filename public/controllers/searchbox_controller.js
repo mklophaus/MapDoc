@@ -146,8 +146,8 @@
               id: i,
               url: m.fileUrl,
               title: m.title,
-              subject: m.subject
-          };
+              subject: m.subject,
+              author: m.author          };
           mapMarkers.push(mapMarker);
           i++;
       });
