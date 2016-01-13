@@ -13,10 +13,6 @@
       .state("landing", {
         url: "/"
       })
-      .state("home", {
-        url: "/home",
-        templateUrl: "/templates/home.html"
-      })
       .state("mapPage", {
         url: "/map",
         templateUrl: "/templates/map.html"
@@ -34,7 +30,12 @@
       .state("yourDocs", {
         url: "/yourDocuments",
         templateUrl: "/templates/your_docs.html",
-        controller: "YourDocsController"
+        controller: "YourDocsController",
+        controllerAs: "vm"
+      })
+      .state("edit", {
+        url: "/edit",
+        templateUrl: "/templates/edit.html"
       })
       .state("register", {
         url: "/register",
@@ -44,9 +45,7 @@
       })
       .state("login", {
         url: "/login",
-        templateUrl: "/templates/login.html",
-        controller: "LoginController",
-        controllerAs: "vm"
+        templateUrl: "/templates/login.html"
       });
 }
 
