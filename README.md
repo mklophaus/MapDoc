@@ -10,6 +10,8 @@
 
 MapDoc is an application which allows users to both upload articles that can be used for research and to also explore documents by location, title, author or subject matter. Users join and can upload any type of file along with a certain location. The location gets pinned to the MapDoc map and other users are able to join and find work on MapDoc. 
 
+<img align="center" src="https://i.imgur.com/QYmQxr1.png" height="400"/>
+
 Development | Services | Deplployment
 ------------|------|-------------
 AngularJs | Google Maps API | Heroku
@@ -51,10 +53,9 @@ Parameters  | Value | Description | Example
 author | String | author of document created | "James Hunter"
 title | String| title of document created | "Bears"
 subject | String | subject of the document | "Animals"
-location | address location of the document | Anchorage, Alaska 
-longitude | String | longitude of the location | 78.96288
-latitude | String | latitude of the location | 20.593684
-
+location | String | location of the document | Anchorage, Alaska 
+longitude | String | longitude of the location | "78.96288"
+latitude | String | latitude of the location | "20.593684"
 
 
 
