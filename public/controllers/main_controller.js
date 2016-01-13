@@ -33,7 +33,7 @@
         .then(function(res) {
           $log.log(res.data);
           userDataService.user = res.data.user;
-          $state.go('home');
+          $state.go('landing');
         });
     };
 
