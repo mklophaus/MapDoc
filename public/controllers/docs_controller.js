@@ -30,7 +30,6 @@
     var s3key, s3secret;
 
     $http.get('/s3keys').then(function(res){
-      console.log(res.data);
       $scope.creds = {
         bucket: 'mapdocapp',
         access_key: res.data.AMAZON_KEY_ID,
@@ -121,51 +120,7 @@
     }
   }
 
-    vm.getDocs    = getDocs;
-    vm.deleteDoc = deleteDoc;
-    vm.updateDoc = updateDoc;
-    vm.resetEditorm = resetEditForm;
 
-    vm.getDocs();
-
-
-    function getDocs() {
-      $http.get('/docs').then(function(response) {
-        //console.log(response);
-        vm.docs = response.data;
-      }, function(err) {
-        console.error('Error!', err);
-      });
-    }
-
-    function deleteDoc(id) {
-      $http.delete('/docs/' + id).then(function(response) {
-        console.log(response);
-      }, function(err) {
-        console.error('Error deleting doc!', err);
-      }).then(getDocs);
-    }
-
-    function updateDoc(id) {
-      $http.put('/docs' + id, vm.editDoc).then(function(response) {
-        vm.editDoc = {
-          title: "",
-          subject: "",
-          location: ""
-        };
-      }, function(err) {
-        console.log('Error editing!', err);
-      }).then(getDocs);
-    }
-
-    function resetEditForm() {
-      vm.docTitle = '';
-      vm.docSubject = '';
-      vm.editDoc = {
-        name: "",
-        category: ""
-      };
-    }
 
   }
 
