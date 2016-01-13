@@ -1,12 +1,15 @@
 <div ng-controller="YourDocsController" class="container">
 
-<div class="bar">
+  <br>
+  <br>
+  <br>
+  <br>
+
+<div class="centered bar">
       <!-- Create a binding between the searchString model and the text field -->
       <label>Search by Title: </label>
       <input type="text" ng-model="searchString" placeholder="Enter your search terms" />
     </div>
-
-  <br>
 
   <table class="rwd-table">
     <tr>
@@ -16,11 +19,10 @@
       <th>Location</th>
       <th>Longitude</th>
       <th>Latitude</th>
-      <th>Edit</th>
       <th>Delete</th>
     </tr>
 
-    <tbody ng-repeat="i in items | searchFor:searchString">
+    <tbody ng-repeat="i in items |  searchFor:searchString">
       <tr>
         <td>{{i.title}}</td>
         <td>{{i.subject}}</td>
@@ -28,12 +30,26 @@
         <td>{{i.location}}</td>
         <td>{{i.longitude}}</td>
         <td>{{i.latitude}}</td>
-        <td><button class="btn btn-default glyphicon glyphicon-edit"/></td>
-        <td><button class="btn btn-default glyphicon glyphicon-trash"/></td>
+        <td class="centered"><button class="center btn btn-default oi oi-trash" ng-click="deleteDoc(i._id, i)"/></td>
+
       </tr>
     </tbody>
-
   </table>
+<!--
+   <div id="modal" role="dialog" class="modal hide fade">
+        <div>
+            <div class="modal-header">
+                Item Dialog
+            </div>
+            <div class="modal-body">
+                <label for="txtName" />
+                <input type="text" id="txtName" ng-model="item.name" />
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="saveItem()" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div> -->
 
 <br>
 

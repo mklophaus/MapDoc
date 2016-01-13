@@ -1,121 +1,138 @@
 
-<div class="container">
+    <!--################ WRAP START ################-->
 
-<div class="row">
+    <div ng-controller="SearchBoxController" class="flexslider" id="wrap">
 
-<div class="col-md-4" ng-controller="ParameterController">
+        <!--################ HEADER START ################-->
 
-<h2>Search for a Document</h2>
+        <section class="contact-page">
 
-<h3>By Author, Title or Subject</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                    <br>
+                    <br>
+                        <h1 class="center"><i class="oi oi-magnifying-glass"></i> Search</h1>
+                        <p class="description center">Search for a place on the map.</p>
+                        <div class="map">
 
-<br>
+                                  <div id="searchBoxParent">
+                                    <label><strong>Location: <strong></label>
+                                  </div>
+                                  <br>
+                                  <div ng-show="AfterSubmit" class="col-md-3">
+                                    <pre>{{ngModel}}</pre>
+                                    <h4>check</h4>
+                                  </div>
 
-  <form class="navbar-form text-center">
+                                    <ui-gmap-google-map
+                                            center="map.center"
+                                            zoom="map.zoom"
+                                            dragging="map.dragging"
+                                            bounds="map.bounds"
+                                            events="map.events"
+                                            options="map.options"
+                                            pan="true"
+                                            control="map.control"
+                                            >
+                                        <!--to add as a map control -->
+                                        <ui-gmap-search-box options="searchbox.options" template="searchbox.template"
+                                          parentdiv="searchbox.parentdiv" ng-model="searchModel.searchTerm"
+                                                        events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>
 
-            <div class="form-group">
-              <label>Author:</label>
-              <input id="search-query" required type="text" class="form-control nav-font" placeholder="SEARCH FOR" ng-model="searchAuthor">
+                                         <ui-gmap-markers models="markers" coords="'self'" icon="'icon'">
+
+                                              <ui-gmap-windows show="show">
+
+                                                      <div ng-non-bindable>
+                                                      <strong>Title of Document: </strong>{{title}}
+                                                      <br>
+                                                      <strong>Subject: </strong>{{subject}}
+                                                      <br>
+                                                      <strong>Author: </strong>{{author}}
+                                                      <br>
+                                                      <a href="{{url}}" target="_blank">Link to Article</a>
+                                                      </div>
+                                              </ui-gmap-windows>
+
+                                          </ui-gmap-markers>
+
+                                    </ui-gmap-google-map>
+                        </div>
+                        <br>
+                        <!-- Begin Content -->
+
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-success nav-font">SUBMIT</button>
-            <br>
-            <br>
-             <div class="form-group">
-              <label>Title:</label>
-              <input id="search-query" required type="text" class="form-control nav-font" placeholder="SEARCH FOR" ng-model="searchString">
+
+        </section>
+        <section class="contact-page rev">
+
+            <div class="container center">
+                <div class="row margintop20">
+
+
+                    <div class="col-md-4">
+
+                        <h2 class="big-h2-heading"><i class="oi oi-magnifying-glass"></i> Search</h2>
+                        <p>Choose your Search</p>
+                        <br>
+
+
+                        <form class="form-inline">
+
+                                <div class="form-group">
+                                   <select class="form-control" id="searchSelection">
+                                     <option class="form-control" value="1">Author</option>
+                                     <option value="2">Subject</option>
+                                     <option value="3">Title</option>
+                                   </select>
+
+                                  <input id="authorSearch" style:"display:none;" required type="text" class="form-control" placeholder="Search by Author" ng-model="searchAuthor">
+                                  <input id="titleSearch"  style="display:none;" required type="text" class="form-control" placeholder="Search by Title" ng-model="searchTitle">
+                                  <input id="subjectSearch" style="display:none;" required type="text" class="form-control" placeholder="Search by Subject" ng-model="searchSubject">
+
+                                </div>
+                       </form>
+
+                        <div id="result"></div>
+                    </div>
+                    <div class="col-md-8">
+
+                        <table class="paginated" cellspacing="0"width="100">
+                          <thead>
+                            <tr>
+                              <th scope="col">Author</th>
+                              <th scope="col">Title</th>
+                              <th scope="col">Subject</th>
+                              <th scope="col">Location</th>
+                              <th scope="col">Document Link</th>
+                            </tr>
+                          </thead>
+                            <tbody ng-repeat="i in items | searchForAuthor:searchAuthor | searchForTitle:searchTitle | searchForSubject:searchSubject">
+                              <tr>
+                                <td>{{i.author}}</td>
+                                <td>{{i.title}}
+                                <td>{{i.subject}}</td>
+                                <td ng-click="findLocation(i.location)">{{i.location}}</td>
+                                <td><a href="{{i.fileUrl}}" target="_blank">MapDoc Link</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-success nav-font">SUBMIT</button>
-            <br>
-            <br>
-             <div class="form-group">
-              <label>Subject:</label>
-              <input id="search-query" required type="text" class="form-control nav-font" placeholder="SEARCH FOR" ng-model="searchSubject">
-            </div>
-            <button type="submit" class="btn btn-success nav-font">SUBMIT</button>
-  </form>
 
-   <table class="smallTable">
-    <tr>
-      <th>Author</th>
-      <th>Title</th>
-      <th>Subject</th>
-      <th>Link</th>
-    </tr>
-
-    <tbody ng-repeat="i in items | searchFor:searchString">
-      <tr>
-        <td>{{i.author}}</td>
-        <td>{{i.title}}
-        <td>{{i.subject}}</td>
-        <td><a href="{{i.fileUrl}}" target="_blank">Link</a></td>
-      </tr>
-    </tbody>
-
-  </table>
+        </section>
 
 
-</div> <!-- grid end -->
 
-  <div class="col-md-8" ng-controller="SearchBoxController">
-      {{currentUser.email}}
-      {{currentUser.name}}
 
-      <div id="searchBoxParent">
-        <label><strong>Location: <strong></label>
-      </div>
-      <br>
-      <div ng-show="AfterSubmit" class="col-md-3">
-        <pre>{{ngModel}}</pre>
-        <h4>check</h4>
-      </div>
+    </div>
 
-        <ui-gmap-google-map
-                center="map.center"
-                zoom="map.zoom"
-                dragging="map.dragging"
-                bounds="map.bounds"
-                events="map.events"
-                options="map.options"
-                pan="true"
-                control="map.control"
-                >
-            <!--to add as a map control -->
-            <ui-gmap-search-box options="searchbox.options" template="searchbox.template"
-              parentdiv="searchbox.parentdiv" ng-model="searchModel.searchTerm"
-                            events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>
+    <!--################ PUSH WILL KEEP THE FOOTER AT BOTTOM IF YOU WANT TO CREATE OTHER PAGES ################-->
 
-             <ui-gmap-markers models="markers" coords="'self'" icon="'icon'">
+<!--     <div id="push"></div>
+ -->
 
-                  <ui-gmap-windows show="show">
-
-                          <div ng-non-bindable>
-                          <strong>Title of Document: </strong>{{title}}
-                          <br>
-                          <strong>Subject: </strong>{{subject}}
-                          <br>
-                          <a href="{{url}}" target="_blank">Link to Article</a>
-                          </div>
-                  </ui-gmap-windows>
-
-              </ui-gmap-markers>
-
-        </ui-gmap-google-map>
-
-    <br>
-
-    <button type="button" ng-click="toggleMap()">Toggle Visibility</button>
-    <span ng-bind="searchbox.options.visible"></span>
-
-  </div> <!-- ng-searchboxcontroller -->
-
-  </div><!-- row -->
-
-  <br>
-
-  <button class="btn btn-danger" type="submit" ui-sref="home">Back to Home</button>
-
-  <br>
-  <br>
-  <br>
-
-</div><!--container -->

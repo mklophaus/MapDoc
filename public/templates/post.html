@@ -1,43 +1,74 @@
-<div class="container">
+<section class="contact-page">
+
+<div class="container centered">
+<br>
+<br>
+<br>
 
 <h2>Upload a Document!</h2>
 <br>
 
+
  {{currentUser.email}}
       {{currentUser.name}}
 
-<br>
+<form class="form-horizontal">
 
-<form class="form-inline">
-  <label>Document Title: </label>
-  <input class="text-center" name="doc[title]" id="doc-title" placeholder="Title" ng-model="vm.newDoc.title"/>
-  <br>
-  <br>
-  <label>Subject: </label>
-  <input class="text-center" name="doc[subject]" id="doc-subject" placeholder="Subject" ng-model="vm.newDoc.subject"/>
-  <br>
-  <br>
+  <div class="form-group">
+    <label class="col-xs-2 control-label">Title: </label>
+    <div class="col-xs-8">
+    <input class="form-control" name="doc[title]" id="doc-title" placeholder="Title" ng-model="vm.newDoc.title"/>
+    </div>
+  </div>
 
-  <label>Location: </label>
-  <input class="text-center" name="doc[location]" id="doc-location" placeholder="City/State/Country" ng-model="vm.newDoc.location"/>
-  <br>
-  <br>
+  <div class="form-group">
 
-  <input class="text-center" name="doc[file]" file type="file"  id="uploadInput" ng-model="vm.newDoc.file"/>
+    <label class="col-xs-2 control-label">Subject: </label>
+    <div class="col-xs-8">
+    <input class="form-control" name="doc[subject]" id="doc-subject" placeholder="Subject" ng-model="vm.newDoc.subject"/>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+    <label class="col-xs-2 control-label">Location: </label>
+      <div class="col-xs-8">
+        <input class="form-control" name="doc[location]" id="doc-location" placeholder="City/State/Country" ng-model="vm.newDoc.location"/>
+      </div>
+    </div>
+
+    <input name="doc[file]" file type="file"  id="uploadInput" ng-model="vm.newDoc.file"/>
+    <br>
+
+    <button class="centered btn btn-success" ng-click="upload()">Upload!</button>
+
   <br>
-
-  <button class="btn btn-success" ng-click="upload()">Upload!</button>
-
-<br>
 
 </form>
 
 <br>
 <br>
 
-    <button class="btn btn-danger" type="submit" ui-sref="mapPage">See Documents</button>
+    <button class="centered btn btn-danger" type="submit" ui-sref="mapPage">See Documents</button>
 
 <br>
 <br>
 
 </div>
+
+
+</section>
+
+<div class="container centered">
+
+    <br>
+    <br>
+    <br>
+
+    <div>
+        <h1><i class="oi oi-pencil icon-10x"></i></h1>
+    </div>
+
+  </div>
+
+
