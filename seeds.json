@@ -1,69 +1,69 @@
 
 var docs = [
   {
-    author: "Patti Konlowsky",
-    title: "Bananas are dying",
-    subject: "Fruit of the earth",
-    location: "South America",
-    fileUrl: "http://www.google.com",
-    longitude: "-55.491477",
-    latitude: "-8.783195"
+    "author": "Patti Konlowsky",
+    "title": "Bananas are dying",
+    "subject": "Fruit of the earth",
+    "location": "South America",
+    "fileUrl": "http://www.google.com",
+    "longitude": "-55.491477",
+    "latitude": "-8.783195"
   },
  {
-    longitude: "105.318756",
-  latitude: "61.524010",
-  author: "Martin Finola",
-  title: "Vegetation in Moscow",
-  subject: "Plants",
-  location: "Russia",
-  fileUrl: "http://www.google.com"
+  "longitude": "105.318756",
+  "latitude": "61.524010",
+  "author": "Martin Finola",
+  "title": "Vegetation in Moscow",
+  "subject": "Plants",
+  "location": "Russia",
+  "fileUrl": "http://www.google.com"
 
 },
 
  {
-    longitude: "78.962880",
-    latitude: "20.593684",
-    author: "Dr. Shelly Saturn",
-    title: "Marshes",
-    subject: "Land",
-    location: "India",
-    fileUrl: "http://www.google.com"
+    "longitude": "78.962880",
+    "latitude": "20.593684",
+    "author": "Dr. Shelly Saturn",
+    "title": "Marshes",
+    "subject": "Land",
+    "location": "India",
+    "fileUrl": "http://www.google.com"
   },
    {
-      longitude: -118.144516,
-    latitude: 34.147785,
-    author: "Bob Hope Phd",
-    title: "Insects getting bigger",
-    subject: "World of Insects",
-    location: "Pasadena, CA",
-    fileUrl: "http://www.google.com"
+    "longitude": -118.144516,
+    "latitude": 34.147785,
+    "author": "Bob Hope Phd",
+    "title": "Insects getting bigger",
+    "subject": "World of Insects",
+    "location": "Pasadena, CA",
+    "fileUrl": "http://www.google.com"
   },
    {
-     longitude: -75.527670,
-    latitude: 38.910832,
-    author: "Dr. Michelle Luck",
-    title: "Rivers",
-    subject: "The Delaware River",
-    location: "Delaware",
-    fileUrl: "http://www.google.com"
+     "longitude": -75.527670,
+    "latitude": 38.910832,
+    "author": "Dr. Michelle Luck",
+    "title": "Rivers",
+    "subject": "The Delaware River",
+    "location": "Delaware",
+    "fileUrl": "http://www.google.com"
   },
    {
-    longitude: -122.676482,
-    latitude: 45.523062,
-    author: "Jennifer James",
-    title: "RATS",
-    subject: "RODENTS",
-    location: "Portland, OR",
-    fileUrl: "http://www.google.com",
+    "longitude": -122.676482,
+    "latitude": 45.523062,
+    "author": "Jennifer James",
+    "title": "RATS",
+    "subject": "RODENTS",
+    "location": "Portland, OR",
+    "fileUrl": "http://www.google.com",
   },
    {
-    author: "Michael Klophaus",
-    title: "Clouds",
-    subject: "Atmosphere",
-    location: "Doylestown, PA",
-    fileUrl: "http://www.google.com",
-    longitude: -75.129894,
-    latitude: 40.310106
+    "author": "Michael Klophaus",
+    "title": "Clouds",
+    "subject": "Atmosphere",
+    "location": "Doylestown, PA",
+    "fileUrl": "http://www.google.com",
+    "longitude": -75.129894,
+    "latitude": 40.310106
   },
    {
     author: "Red Foreman",
