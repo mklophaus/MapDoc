@@ -212,7 +212,7 @@ section {
     position: relative;
 }
 header {
-    background: url(../../assets/images/landscape1.jpg) no-repeat fixed;
+    background: url(../../assets/images/landscape2.jpeg) no-repeat fixed;
 /*    -webkit-filter: brightness(50%);
 */    -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1021,7 +1021,7 @@ html[xmlns] .slides {
     position: relative!important;
     z-index: 0;
 }*/
-
+/*
 .carousel-fade .carousel-inner .item {
     opacity: 0;
     -webkit-transition-property: opacity;
@@ -1048,7 +1048,7 @@ html[xmlns] .slides {
 }
 #testimonials .carousel-control.right {
     background: none !important;
-}
+}*/
 .testimonial {
     background-color: #FFF;
     border: 0;
@@ -1842,8 +1842,8 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 /*Footer Links*/
 
 ul.footer-links {
-    list-style-image: url(../images/square.png);
-    list-style-position: inside;
+/*    list-style-image: url(../images/square.png);
+*/    list-style-position: inside;
 }
 a.flink {
     color: #666;
