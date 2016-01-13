@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/main.css">
 
     <link href="css/lib/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="js/lib/bootstrap-combined.min.css"></script>
+
     <link href="css/lib/font-awesome.css" media="all" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/lib/jquery.fancybox.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/lib/jquery.fancybox-thumbs.css?v=1.0.2" />
@@ -25,6 +27,10 @@
     <link href="css/lib/style.css" rel="stylesheet" type="text/css" />
     <link href="css/lib/style-responsive.css" rel="stylesheet" type="text/css" />
 
+      <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery.flexslider.js"></script>
+        <script src="js/lib/stellar.js"></script>
+    <script src="js/lib/custom.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 
@@ -36,7 +42,7 @@
     <link rel="shortcut icon" href="ico/favicon.png"> -->
 </head>
 
-<body ng-controller="MainController as vm" ng-cloak>
+<body auto-scroll="True" ng-controller="MainController as vm" ng-cloak>
     <!-- preloader -->
    <!--  <div class="preloading">
         <img class="loading-gif" src="images/fancy-loading.gif" alt="preloader">
@@ -54,7 +60,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand as-seen" ui-sref="landing">
+                    <a class="navbar-brand" ui-sref="landing">
                         <img src="assets/images/flat_logo_smaller.png" width="150" id="logokhan" alt="...">
                     </a>
                 </div>
@@ -67,40 +73,29 @@
                                 </li>
                                 <li><a ui-sref="mapPage">Search</a>
                                 </li>
-                                <li><a href="index-3.html">Home Showcase</a>
-                                </li>
                             </ul>
                         </li>
                         <li><a ui-sref="yourDocs">Dashboard</a>
                         </li>
                         <li><a ui-sref="mapPage">Search</a>
                         </li>
-                        <li><a ui-sref="post">Post</a>
-                        </li>
-                        <li class="">
+
+                        <li role="presentation" ui-sref-active="active" ng-hide="vm.isLoggedIn()">
+                        <a ui-sref="register">Register</a>
+                      </li>
+
+                      <li role="presentation" ui-sref-active="active" ng-show="vm.isLoggedIn()">
+                        <a ui-sref="post">Post</a>
+                      </li>
 <!--                             <a data-toggle="modal" href="#signUpModal" class="">Sign Up</a>
  -->
-                             <a ui-sref="register">Sign Up!</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Sign In <b class="caret"></b></a>
-                            <div class="dropdown-menu" style="padding: 15px;">
-                                <form ng-submit="vm.login()" role="form" class="form-menu">
-                                    <div class="form-group">
-                                        <input ng-model="vm.loginData.email" type="text" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input ng-model="vm.loginData.password" type="password" class="form-control" placeholder="Password">
-                                    </div>
-                                    <div class="checkbox">
-                                        <label class="text-muted">
-                                            <input type="checkbox">Remember me
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-block btn-purity">Submit</button>
-                                </form>
-                            </div>
-                        </li>
+
+                        <li ng-hide="vm.isLoggedIn()"><a ui-sref="login">Login</a></li>
+
+                         <li ng-show="vm.isLoggedIn()">
+                                <a class="btn" ng-click="vm.logout()">Logout</a>
+                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -110,35 +105,20 @@
     <!--################ WRAP START ################-->
 
 
-    <div ui-view id="wrap">
+    <div id="wrap" ui-view autoscroll="true">
         <!--################ HEADER START ################-->
-        <header data-stellar-background-ratio="0">
-            <div class="container home">
-                <div class="flexslider home">
-                    <ul class="slides">
-                        <li>
-                            <div class="col-md-7 animated fadeInLeftBig">
-                                <img src="assets/images/flat_logo.png">
-                            </div>
-                            <div class="col-md-4 margintop10p animated fadeInDownBig">
-                                <h1><i class="icon-tablet"></i><i class="icon-mobile-phone"></i><i class="icon-desktop"></i>
-                                    <br />Post it</h1>
-                            </div>
-                        </li>
-                        <li class="margin5">
-                            <div class="col-md-6 animated fadeInLeftBig" id="main-media">
-                                <i class="oi oi-map-marker icon-10x color5"></i>`
+        <header>
+            <div class="container">
+                <div class="row frontPage">
+                        <div class="col-md-6">
 
-                            </div>
-                            <div class="col-md-5">
-                                <h1>Upload your documents with a location</h1>
-                            </div>
-                        </li>
-                        <li class="margintop10p">
-                            <h1><i class="oi oi-globe icon-2x color5"></i>
-                                <br />Find documents you need for research.</h1>
-                        </li>
-                    </ul>
+                      <h1 class="bigFont cenered"><i class="oi oi-map-marker icon-6x"></i> MapDoc</h1>
+                    </div>
+
+                    <div class="col-md-6">
+
+                    <img src="https://i.imgur.com/QYmQxr1.png" height = "300"/>
+                    </div>
                 </div>
             </div>
         </header>
@@ -153,42 +133,48 @@
                    <div class="row">
                     <div class="col-md-12">
                         <ul class="thumbnails list-unstyled">
-                            <li class="col-md-3">
+                            <li class="col-md-3"><a ui-sref="post">
                                 <div class="thumbnail border-left">
                                     <div class="feature-icon">
                                         <i class="oi oi-data-transfer-upload icon-10x color1"></i>
                                     </div>
                                     <h4>Upload your Work</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                    <p>Share your work with fellow researchers.</p>
                                 </div>
+                            </a>
                             </li>
-                            <li class="col-md-3">
+                            <li class="col-md-3"><a ui-sref="mapPage">
                                 <div class="thumbnail border-none">
                                     <div class="feature-icon">
                                         <i class="oi oi-magnifying-glass icon-10x color2"></i>
                                     </div>
                                     <h4>Find Work</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                    <p>Search for work out there.</p>
                                 </div>
+                                </a>
                             </li>
                             <li class="col-md-3">
+                                <a ui-sref="yourDocs">
                                 <div class="thumbnail border-right">
                                     <div class="feature-icon">
                                         <i class="oi oi-dashboard icon-10x color3"></i>
                                     </div>
                                     <h4>Dashboard</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                    <p>Organize your posts.</p>
                                 </div>
+                                </a>
                             </li>
                             <li class="col-md-3">
+                            <a ui-sref="aboutPage">
                                 <div class="thumbnail border-right">
                                     <div class="feature-icon">
                                         <i class="oi oi-map-marker icon-10x color4"></i>
                                     </div>
-                                    <h4>About MapDoc</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus.</p>
+                                    <h4>About</h4>
+                                    <p>Read about MapDoc.</p>
                                 </div>
                             </li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -203,7 +189,7 @@
             <section id="call-to-action" class="margintop20 marginbot20">
 
                 <div class="call-to-action-link">
-                    <a href="#"><span>Sign Up →</span></a>
+                    <a ui-sref="register"><span>Sign Up →</span></a>
                 </div>
 
             </section>
@@ -271,7 +257,7 @@
 
 
     <!--################ JAVASCRIPTS ################-->
-  <script src="js/lib/jquery.js"></script>
+
   <script src="js/lib/lodash.min.js"></script>
   <script src="js/lib/lodash.min.js"></script>
   <script src="js/lib/angular-simple-logger.js"></script>
@@ -279,6 +265,7 @@
   <script src="js/lib/aws-sdk.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
 
   <script src="app.js"></script>
   <script src="app.config.js"></script>
@@ -294,6 +281,8 @@
   <script src="services/auth.service.js"></script>
   <script src="services/user.dataservice.js"></script>
 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+
 
 
     <script src="js/lib/modernizr.js"></script>
@@ -303,21 +292,18 @@
     <script type="text/javascript" src="js/lib/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="js/lib/jquery.fancybox-thumbs.js?v=1.0.2"></script>
     <script type="text/javascript" src="js/lib/jquery.fancybox-media.js?v=1.0.0"></script>
-    <script src="js/lib/stellar.js"></script>
     <script src="js/lib/nicescroll.min.js"></script>
     <script src="js/lib/jquery.isotope.min.js"></script>
-    <script src="js/lib/custom.js"></script>
     <script src="js/lib/custom-home.js"></script>
     <script src="js/lib/portfolio.js"></script>
-    <script src="js/lib/jquery.flexslider.js"></script>
     <script src="js/lib/retina.js"></script>
-    <!-- ajax contact form script -->
-    <script type="text/javascript" src="js/lib/mail.js"></script>
 
+
+    <!-- ajax contact form script -->
 
     <!-- REGISTER MODAL -->
     <!-- Modal -->
-    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div ng-controller="UsersController" class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

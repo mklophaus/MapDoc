@@ -9,10 +9,21 @@ $(window).load(function() {
 
 
 $(document).ready(function() {
-      $('.preloading').fadeOut();
-    $('#carousel_vertical_slide, #carousel-testimonial-1, #carousel-testimonial-2, #carousel_fade, #carousel_vertical_testimonial, #carousel_fade_icons, #carousel-support, #carousel_fade_2, #carousel_testimonial_2').carousel({
-        interval: 3000
-    });
+      // $('.preloading').fadeOut();
+    // $('#carousel_vertical_slide, #carousel-testimonial-1, #carousel-testimonial-2, #carousel_fade, #carousel_vertical_testimonial, #carousel_fade_icons, #carousel-support, #carousel_fade_2, #carousel_testimonial_2').carousel({
+    //     interval: 3000
+    // });
+
+
+  var $myCarousel = $('.topCarousel');
+  var $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation = 'animated']");
+
+  // Initialize carousel
+  $myCarousel.carousel();({
+    interval: 4000
+  })
+
+
     $('#logokhan').hover(function() {
         $(this).addClass('animated tada');
     }, function() {
@@ -29,11 +40,11 @@ $(document).ready(function() {
         });
     });
 });
-///////////// ANCHOR SCROLLS    
+///////////// ANCHOR SCROLLS
 
 
 //
-//  
+//
 // Cache selectors
 var lastId,
     topMenu = $(".nav"),
@@ -46,7 +57,7 @@ var lastId,
         if (item.length) {
             return item;
         }
-        ///////////////TWITTER 
+        ///////////////TWITTER
 
         // $('.tweets').each(function() {
         //     var tweets = $(this),
@@ -59,7 +70,7 @@ var lastId,
         //         loading_text: 'loading twitter feed...'
         //     });
         // });
-        ///////////////FANCYBOX 
+        ///////////////FANCYBOX
         $(".fancybox-media").fancybox({
             arrows: true,
             padding: 0,
