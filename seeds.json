@@ -6,12 +6,12 @@
     "subject": "Fruit of the earth",
     "location": "South America",
     "fileUrl": "http://www.google.com",
-    "longitude": "-55.491477",
-    "latitude": "-8.783195"
+    "longitude": -55.491477,
+    "latitude": -8.783195
   },
  {
-  "longitude": "105.318756",
-  "latitude": "61.524010",
+  "longitude": 105.318756,
+  "latitude": 61.524010,
   "author": "Martin Finola",
   "title": "Vegetation in Moscow",
   "subject": "Plants",
@@ -20,8 +20,8 @@
 },
 
  {
-    "longitude": "78.962880",
-    "latitude": "20.593684",
+    "longitude": 78.962880,
+    "latitude": 20.593684,
     "author": "Dr. Shelly Saturn",
     "title": "Marshes",
     "subject": "Land",
