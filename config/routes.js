@@ -25,6 +25,14 @@ router.post('/docs',      docsController.docCreate);
 router.put('/docs/:id',    docsController.docUpdate);
 router.delete('/docs/:id', docsController.docDelete);
 
-router.get('/s3keys', docsController.getKeys);
+
+// var block = false;
+// var BlockingMiddleware = function(req, res, next) {
+//   if (block === true)
+//     return res.send(503); // 'Service Unavailable'
+//   next();
+// };
+
+router.put('/s3keys', docsController.getKeys);
 
 module.exports = router;

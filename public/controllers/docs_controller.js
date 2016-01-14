@@ -29,13 +29,21 @@
 
     var s3key, s3secret;
 
-    $http.get('/s3keys').then(function(res){
+     var configVars = ["AWSkeys", 1];
+    // $http.get('configvars.json').success(function(data){
+    //   configVars = data;
+    // });
+
+    // console.log(configVars);
+
+
+
+    $http.put('/s3keys', configVars).then(function(res){
       $scope.creds = {
         bucket: 'mapdocapp',
         access_key: res.data.AMAZON_KEY_ID,
         secret_key: res.data.AMAZON_SECRET
       };
-
     });
 
    function geocodeAddress(address, callback){
@@ -50,8 +58,6 @@
     }
 
     $scope.upload = function() {
-
-      console.log($scope.creds);
 
     // Configure The S3 Object
     AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
